@@ -1,0 +1,118 @@
+{
+    "emp_list": [
+        {
+            "emp_id": 1,
+            "name": "Frank Castle",
+            "email": "frank@castle.com",
+            "designation": "Punisher"
+        },
+        {
+            "emp_id": 2,
+            "name": "Matt Murdock",
+            "email": "matt@murdock.com",
+            "designation": "Vigilante"
+        },
+        {
+            "emp_id": 3,
+            "name": "Malcom Marshall",
+            "email": "malcom@marshall.com",
+            "designation": "Student"
+        }
+    ],
+    "technology_list":[
+        {   
+            "technology_id": 1,
+            "technology_name": "Angular",
+            "technology_desc": "AngularJs is javascript framework"
+        },
+        {   
+            "technology_id": 2,
+            "technology_name": "NodeJs",
+            "technology_desc": "NodeJs is javascript framework"
+        },
+        {   
+            "technology_id": 3,
+            "technology_name": "React-Native",
+            "technology_desc": "React-Native is javascript framework"
+        },
+        {   
+            "technology_id": 4,
+            "technology_name": "EmberJs",
+            "technology_desc": "EmberJs is javascript framework"
+        }
+    ],
+    "client_list":[
+        {   
+            "client_id": 1,
+            "client_name": "Client1",
+            "client_info": "This is client 1"
+        },
+        {   
+            "client_id": 2,
+            "client_name": "Client2",
+            "client_info": "This is client 2"
+        }
+    ],
+    "question_list":[
+        {   
+            "question_id": 1,
+            "question": "Client1",
+            "answers": [
+                {
+                    "emp_id":1,
+                    "name":"dsfsdfsdf"
+                },
+                {
+                    "emp_id":1,
+                    "name":"dsfsdfsdf"
+                },
+                {
+                    "emp_id":1,
+                    "name":"dsfsdfsdf"
+                }
+            ],
+            "client_info": [{
+                "client_id": 1,
+                "client_name": "Client1"
+            }],
+            "technology_info": [{
+                "technology_id": 1,
+                "technology_name": "Client1"
+            }],
+            "author_info":{
+                "emp_id":1,
+                "name":"Frank Castle"
+            }
+        },
+        {   
+            "question_id": 2,
+            "question": "Client1",
+            "answers": [
+                {
+                    "emp_id":1,
+                    "name":"dsfsdfsdf"
+                },
+                {
+                    "emp_id":1,
+                    "name":"dsfsdfsdf"
+                },
+                {
+                    "emp_id":1,
+                    "name":"dsfsdfsdf"
+                }
+            ],
+            "client_info": [{
+                "client_id": 1,
+                "client_name": "Client1"
+            }],
+            "technology_info": [{
+                "technology_id": 1,
+                "technology_name": "Client1"
+            }],
+            "author_info":{
+                "emp_id":1,
+                "name":"Frank Castle"
+            }
+        }
+    ]
+}
