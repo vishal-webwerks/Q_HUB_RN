@@ -11,6 +11,7 @@ import {
 } from './ActionTypes';
 import { API_URL } from '../../common/globals';
 
+//Export set client
 export const setClientProps = ({ prop, value }) => {
     return {
         type: CLIENT_SET_PROP,
