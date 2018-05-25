@@ -4,11 +4,11 @@ const async = require('async');
 const Client_Model = require('./clientModel');
 
 module.exports.getClients = (callback) => {
-    
+
     Client_Model.find({}, (err, employees)=>{
         if(err){
             return callback(err);
-        }       
+        }
         return callback(null, employees);
     })
 

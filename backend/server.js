@@ -20,7 +20,8 @@ app.use('/api',
     require('./src/modules/employee/employeeRoute'),
     require('./src/modules/technology/techRoute'),
     require('./src/modules/client/clientRoute'),
-    require('./src/modules/questions/questionRoute')
+    require('./src/modules/questions/questionRoute'),
+    require('./src/modules/test/testRoute')
 );
 
 app.listen(app.get('port'), ()=>{

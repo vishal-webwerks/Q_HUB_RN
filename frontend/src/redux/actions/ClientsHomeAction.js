@@ -20,7 +20,7 @@ export const setClientProps = ({ prop, value }) => {
 
 export const resetModal = () => {
     return {
-        type: CLIENT_RESET_MODAL        
+        type: CLIENT_RESET_MODAL
     }
 }
 
@@ -48,24 +48,24 @@ export const saveClient = (data) => {
 
     return(dispatch) => {
 
-        dispatch({ 
-            type:CLIENT_SET_PROP, 
-            payload:{prop:"modal_btn_loading", value:true} 
+        dispatch({
+            type:CLIENT_SET_PROP,
+            payload:{prop:"modal_btn_loading", value:true}
         });
 
         axios.post(API_URL+'saveClient', data,{
                 headers: { 'Cache-Control': 'no-cache' }
              })
              .then(function(response){
-                dispatch({ 
-                    type:CLIENT_SAVE, 
-                    payload:response 
-                });      
+                dispatch({
+                    type:CLIENT_SAVE,
+                    payload:response
+                });
              })
              .catch(function(err){
-                dispatch({ 
-                    type:CLIENT_SAVE_ERROR, 
-                    payload:err 
+                dispatch({
+                    type:CLIENT_SAVE_ERROR,
+                    payload:err
                 });
              });
 
@@ -77,24 +77,24 @@ export const updateClient = (data) => {
 
     return(dispatch) => {
 
-        dispatch({ 
-            type:CLIENT_SET_PROP, 
-            payload:{prop:"modal_btn_loading", value:true} 
+        dispatch({
+            type:CLIENT_SET_PROP,
+            payload:{prop:"modal_btn_loading", value:true}
         });
 
         axios.post(API_URL+'updateClient', data,{
                 headers: { 'Cache-Control': 'no-cache' }
              })
              .then(function(response){
-                dispatch({ 
-                    type:CLIENT_UPDATE, 
-                    payload:response 
-                });      
+                dispatch({
+                    type:CLIENT_UPDATE,
+                    payload:response
+                });
              })
              .catch(function(err){
-                dispatch({ 
-                    type:CLIENT_UPDATE_ERROR, 
-                    payload:err 
+                dispatch({
+                    type:CLIENT_UPDATE_ERROR,
+                    payload:err
                 });
              });
 

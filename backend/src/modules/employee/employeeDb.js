@@ -4,11 +4,11 @@ var config = require('../../config/config');
 var Employee_Model = require('./employeeModel');
 
 module.exports.getEmployees = (callback) => {
-    
+
     Employee_Model.find({}, (err, employees)=>{
         if(err){
             callback(err);
-        }       
+        }
         callback(null, employees);
     })
 
@@ -24,8 +24,8 @@ module.exports.saveEmployee = (input, callbackMain) => {
             });
         },
         //Getting count of email
-        (hash, callback)=>{            
-    
+        (hash, callback)=>{
+
             Employee_Model.count({email:input.email}, (err, count)=>{
                 if(err){
                     return callback(err);
@@ -33,7 +33,7 @@ module.exports.saveEmployee = (input, callbackMain) => {
                 if(count>0){
                     return callback('Email already exist');
                 }
-                callback(null, hash);               
+                callback(null, hash);
             });
 
         },
@@ -63,9 +63,9 @@ module.exports.updateEmployee = (input, callbackMain) => {
 
     async.waterfall([
         (callback) => {
-            Employee_Model.count({ 
-                                    email:input.email, 
-                                    _id:{ $ne:input._id } 
+            Employee_Model.count({
+                                    email:input.email,
+                                    _id:{ $ne:input._id }
                                 }, (err, count) => {
                 if(err){
                     return callback(err);
@@ -89,10 +89,10 @@ module.exports.updateEmployee = (input, callbackMain) => {
 
         },
         (employee, callback) => {
-            
+
             employee.name = input.name;
             employee.designation = input.designation;
-            employee.email = input.email;            
+            employee.email = input.email;
 
             employee.save((err, todo)=>{
                 if(err){
@@ -100,7 +100,7 @@ module.exports.updateEmployee = (input, callbackMain) => {
                 }
                 callback(null, "Employee updated");
             });
-            
+
         }
     ], (error, success) => {
         return callbackMain(error, success);

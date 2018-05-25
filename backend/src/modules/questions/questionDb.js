@@ -8,13 +8,13 @@ module.exports.saveQuestions = (input, callbackMain) => {
 
     console.log(input);
 
-    let data = {        
+    let data = {
         client_id: input.client_id,
         technology_id: input.technology_id,
         employee_id: input.employee_id
     }
 
-    async.each(input.temp_que_list, (item, callback)=>{
+    async.each(JSON.parse(input.temp_que_list), (item, callback)=>{
 
         data.question = item.question;
 
@@ -29,7 +29,7 @@ module.exports.saveQuestions = (input, callbackMain) => {
                     question_id: data._id,
                     answer: item.answer,
                 }
-    
+
                 let answer = new Answer_Model(answer_data);
                 answer.save((err, data)=>{
                     if(err){
@@ -40,7 +40,7 @@ module.exports.saveQuestions = (input, callbackMain) => {
             }
             else{
                 callback()
-            }            
+            }
 
         })
 
@@ -69,7 +69,6 @@ module.exports.updateQuestion = (input, callbackMain) => {
                     return callback(err)
                 }
                 callback(null, question)
-        
             })
         },
         (question, callback)=>{
@@ -89,7 +88,7 @@ module.exports.updateQuestion = (input, callbackMain) => {
             callbackMain(error)
         }
         callbackMain(null, success)
-    });   
+    });
 
 }
 
@@ -102,9 +101,9 @@ module.exports.getQuestions = (input, callbackMain) => {
                 if(err){
                     return callback(err)
                 }
-                questionsList = JSON.parse(JSON.stringify(questionsList));                
+                questionsList = JSON.parse(JSON.stringify(questionsList));
                 callback(null, questionsList)
-        
+
             })
         },
         (questionsList, callback)=>{
@@ -112,20 +111,20 @@ module.exports.getQuestions = (input, callbackMain) => {
             Answer_Model.find({}, (err, answersList)=>{
                 if(err){
                     return callbackInner(err)
-                }                
+                }
                 questionsList.map((element, index)=>{
-                    var temp = answersList.filter((item)=>{ return element._id==item.question_id })                                         
+                    var temp = answersList.filter((item)=>{ return element._id==item.question_id })
                     questionsList[index].answers = temp;
                 })
                 callback(null, questionsList)
-            })               
-            
+            })
+
         }
     ], (error, success)=>{
         if(error){
             callbackMain(error)
         }
         callbackMain(null, success)
-    })   
+    })
 
 }
